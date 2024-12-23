@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700; }
+            50% { text-shadow: 0 0 15px #ffd700, 0 0 20px #ffd700; }
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1929 0%, #1a365d 50%, #2a4365 100%);
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .gift-container {
+            position: relative;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .gift-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 0 30px rgba(255, 215, 0, 0.1),
+                0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ffd700;
+            opacity: 0.5;
+        }
+
+        .top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .top-right {
+            top: 20px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .christmas-header {
+            font-size: 32px;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 40px;
+            animation: glow 2s infinite;
+        }
+
+        .festival-title {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+            background: linear-gradient(45deg, #ffd700, #fff3b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 10px;
+        }
+
+        .concert-details {
+            text-align: center;
+            margin: 40px 0;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .detail-item {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .detail-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .musical-note {
+            position: absolute;
+            font-size: 24px;
+            color: #ffd700;
+            opacity: 0;
+            animation: sparkle 3s infinite;
+        }
+
+        .note-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .note-2 { top: 20%; right: 15%; animation-delay: 0.5s; }
+        .note-3 { bottom: 15%; left: 20%; animation-delay: 1s; }
+        .note-4 { bottom: 25%; right: 10%; animation-delay: 1.5s; }
+
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.2),
+                rgba(255, 215, 0, 0.5),
+                rgba(255, 215, 0, 0.8),
+                rgba(255, 215, 0, 0.5),
+                rgba(255, 215, 0, 0.2),
+                transparent
+            );
+            margin: 30px auto;
+            width: 80%;
+        }
+
+        .footer-message {
+            text-align: center;
+            font-style: italic;
+            color: #ffd700;
+            margin-top: 40px;
+            font-size: 20px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .conductor {
+            font-size: 20px;
+            color: #e2e8f0;
+            margin: 15px 0;
+        }
+
+        .symphony {
+            font-size: 22px;
+            color: #ffd700;
+            margin: 15px 0;
+        }
+
+        .venue {
+            font-style: italic;
+            color: #a0aec0;
+        }
+
+        .date-time {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 15px 0;
+        }
+
+        .snowflake {
+            position: absolute;
+            color: white;
+            opacity: 0.5;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .snowflake:nth-child(2n) {
+            animation-duration: 8s;
+        }
+
+        .snowflake:nth-child(3n) {
+            animation-duration: 7s;
+        }
+    </style>
+</head>
+<body>
+    <div class="gift-container">
+        <div class="gift-card">
+            <div class="corner-decoration top-left"></div>
+            <div class="corner-decoration top-right"></div>
+            <div class="corner-decoration bottom-left"></div>
+            <div class="corner-decoration bottom-right"></div>
+            
+            <div class="musical-note note-1">♪</div>
+            <div class="musical-note note-2">♫</div>
+            <div class="musical-note note-3">♩</div>
+            <div class="musical-note note-4">♬</div>
+            
+            <div class="christmas-header">
+                ✧ Merry Christmas! ✧
+            </div>
+            
+            <div class="decorative-line"></div>
+            
+            <div class="festival-title">
+                41º Festival Internacional 
+                <br>de Música de Canarias
+            </div>
+            
+            <div class="concert-details">
+                <div class="detail-item">
+                    <div class="symphony">Sinfónica de Tenerife</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div>Presenting</div>
+                    <div class="symphony">Mahler's Symphony No. 6 in A minor</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div>Conducted by</div>
+                    <div class="conductor">Víctor Pablo Pérez</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="date-time">
+                        January 24, 2025 at 20:00 X 5
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="venue">
+                        Auditorio de Tenerife (Sala Sinfónica)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="decorative-line"></div>
+            
+            <div class="footer-message">
+                ✧ May the gift of music fill your heart with joy! ✧
+            </div>
+        </div>
+    </div>
+</body>
+</html>
